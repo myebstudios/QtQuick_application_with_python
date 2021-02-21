@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.3
+import "controls"
 
 Window {
     id: mainWindow
@@ -46,16 +47,7 @@ Window {
                 anchors.leftMargin: 0
                 anchors.topMargin: 0
 
-                Button {
-                    id: toggleBtn
-                    width: 70
-                    height: 60
-                    text: qsTr("Toggle")
-                    anchors.left: parent.left
-                    anchors.top: parent.top
-                    anchors.leftMargin: 0
-                    anchors.topMargin: 0
-                }
+                ToggleButton {}
 
                 Rectangle {
                     id: topBarDescription
@@ -118,7 +110,7 @@ Window {
                         anchors.left: parent.left
                         anchors.top: parent.top
                         anchors.bottom: parent.bottom
-                        source: "qrc:/qtquickplugin/images/template_image.png"
+                        source: "../images/icon.ico"
                         anchors.bottomMargin: 0
                         anchors.leftMargin: 5
                         anchors.topMargin: 0
@@ -149,11 +141,17 @@ Window {
                     anchors.topMargin: 0
                     anchors.rightMargin: 0
 
-                    Button {
+                    TopBarButton {
                         id: btnMinimize
-                        width: 35
-                        height: 35
-                        text: qsTr("Button")
+                    }
+                    TopBarButton {
+                        id: btnMaximizeRestore
+                        btnIconSource: "../images/svg_images/maximize_icon.svg"
+                    }
+                    TopBarButton {
+                        id: btnClose
+                        btnColorClicked: "#f00f49"
+                        btnIconSource: "../images/svg_images/close_icon.svg"
                     }
                 }
             }
@@ -241,11 +239,9 @@ Window {
     }
 }
 
-
-
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.8999999761581421}D{i:4}D{i:6}D{i:5}D{i:9}D{i:10}D{i:8}D{i:11}
-D{i:15}D{i:17}D{i:18}
+    D{i:0;formeditorZoom:1.33}
 }
 ##^##*/
+
